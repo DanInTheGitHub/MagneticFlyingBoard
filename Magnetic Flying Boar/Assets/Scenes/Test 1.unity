@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 96565615}
   - component: {fileID: 96565614}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Pads
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -970,6 +970,8 @@ MonoBehaviour:
   rotationSpeed: 2
   verticalSpeed: 2
   zoomSpeed: 2
+  separationSpeed: 0.5
+  joinSpeed: 0.5
   parentObject: {fileID: 4659167382260594001}
   cameraToOscillate: {fileID: 963194227}
   piecesUp:
@@ -977,7 +979,6 @@ MonoBehaviour:
   - {fileID: 4446499655605884822}
   - {fileID: 1502188638658167478}
   piecesDown:
-  - {fileID: 2712750214932260095}
   - {fileID: 2712750214932260095}
   - {fileID: 5909691363658624232}
   - {fileID: 96565612}
@@ -1693,7 +1694,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 84cf5d246b5fefb45be376cce421ee6c, type: 2}
+  - {fileID: 2100000, guid: 73972d0cd3cea7e42b8b2440a52c1f1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2167,7 +2168,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 84cf5d246b5fefb45be376cce421ee6c, type: 2}
+  - {fileID: 2100000, guid: 73972d0cd3cea7e42b8b2440a52c1f1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2224,7 +2225,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 84cf5d246b5fefb45be376cce421ee6c, type: 2}
+  - {fileID: 2100000, guid: f87628300fe37ab41b8ffa07fee484bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

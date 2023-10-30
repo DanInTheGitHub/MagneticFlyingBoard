@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ViewControl : MonoBehaviour
@@ -6,6 +7,9 @@ public class ViewControl : MonoBehaviour
     public float rotationSpeed = 2.0f;
     public float verticalSpeed = 2.0f;
     public float zoomSpeed = 2.0f;
+
+    public float separationSpeed = 0.5f; // Velocidad de separación
+    public float joinSpeed = 0.5f; // Velocidad de unión
 
     public GameObject parentObject; // El objeto completo que contiene todas las piezas
     public Camera cameraToOscillate; // Cámara que oscilará alrededor del objetivo
@@ -22,6 +26,7 @@ public class ViewControl : MonoBehaviour
     private float verticalAngle = 0.0f;
     private Vector3[] originalPositionsUp;
     private Vector3[] originalPositionsDown;
+
 
     private bool allPiecesVisible = true;
 
@@ -65,35 +70,7 @@ public class ViewControl : MonoBehaviour
     {
         if (canSeparate)
         {
-            if (originalPositionsUp == null)
-            {
-                originalPositionsUp = new Vector3[piecesUp.Length];
-                for (int i = 0; i < piecesUp.Length; i++)
-                {
-                    originalPositionsUp[i] = piecesUp[i].transform.position;
-                }
-            }
-
-            if (originalPositionsDown == null)
-            {
-                originalPositionsDown = new Vector3[piecesDown.Length];
-                for (int i = 0; i < piecesDown.Length; i++)
-                {
-                    originalPositionsDown[i] = piecesDown[i].transform.position;
-                }
-            }
-
-            for (int i = 1; i < piecesUp.Length; i++)
-            {
-                piecesUp[i].transform.Translate(Vector3.forward * 2.0f * i);
-            }
-
-            for (int i = 1; i < piecesDown.Length; i++)
-            {
-                piecesDown[i].transform.Translate(Vector3.back * 2.0f * i);
-            }
-
-            canSeparate = false;
+            StartCoroutine(SeparatePieces());
         }
     }
 
@@ -101,17 +78,7 @@ public class ViewControl : MonoBehaviour
     {
         if (!canSeparate)
         {
-            for (int i = 0; i < piecesUp.Length; i++)
-            {
-                piecesUp[i].transform.position = originalPositionsUp[i];
-            }
-
-            for (int i = 0; i < piecesDown.Length; i++)
-            {
-                piecesDown[i].transform.position = originalPositionsDown[i];
-            }
-
-            canSeparate = true;
+            StartCoroutine(JoinPieces());
         }
     }
 
@@ -177,5 +144,40 @@ public class ViewControl : MonoBehaviour
         }
 
         return allVisible;
+    }
+
+    private IEnumerator SeparatePieces()
+    {
+        float separationTime = 2.0f; // Tiempo total para separar las piezas
+        float startTime = Time.time;
+        while (Time.time - startTime < separationTime)
+        {
+            for (int i = 1; i < piecesUp.Length; i++)
+            {
+                piecesUp[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * separationSpeed);
+                piecesDown[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * separationSpeed);
+                yield return null; // Espera un frame antes de continuar
+            }
+        }
+
+        canSeparate = false;
+    }
+
+    private IEnumerator JoinPieces()
+    {
+        float joinTime = 2.0f; // Tiempo total para separar las piezas
+        float startTime = Time.time;
+
+        while (Time.time - startTime < joinTime)
+        {
+            for (int i = piecesUp.Length - 1; i > 0; i--)
+            {
+                piecesUp[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * joinSpeed);
+                piecesDown[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * joinSpeed);
+                yield return null;
+            }
+        }
+        
+        canSeparate = true;
     }
 }
