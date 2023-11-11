@@ -350,7 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: 0
   delay: 0.01
-  dialogueText: {fileID: 0}
+  dialogueText: {fileID: 6410059}
   linesMessage:
   - "Se imita el patr\xF3n de las llantas de carros para que esta genere una menor
     fricci\xF3n y no dejar que el usuario se deslice"
@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 325529652}
   - component: {fileID: 325529654}
   - component: {fileID: 325529653}
+  - component: {fileID: 325529655}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -624,6 +625,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325529651}
   m_CullTransparentMesh: 1
+--- !u!114 &325529655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325529651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4a9cd5a2c8852449031ed0e9e40401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  delay: 0.01
+  dialogueText: {fileID: 325529653}
+  linesMessage:
+  - Bateria de litio
+  - 
+  - '700 julios '
+  - 
+  - 'Cableado de cobre '
 --- !u!1 &387826728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,6 +1866,7 @@ GameObject:
   - component: {fileID: 787708457}
   - component: {fileID: 787708459}
   - component: {fileID: 787708458}
+  - component: {fileID: 787708460}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1970,6 +1993,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787708456}
   m_CullTransparentMesh: 1
+--- !u!114 &787708460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787708456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4a9cd5a2c8852449031ed0e9e40401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  delay: 0.01
+  dialogueText: {fileID: 787708458}
+  linesMessage:
+  - 'Material imanes '
+  - "\tHierro "
+  - 'Dimensiones '
+  - "\tAltura 5cm "
+  - "\tAncho 25cm "
+  - "\tLargo 25 cm "
+  - 'Peso '
+  - "\t97k"
+  - "Los imanes generan una fuerza magn\xE9tica equivalente a 950 newtons de fuerza
+    para levantar la tabla "
 --- !u!1 &959004104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,6 +2743,7 @@ GameObject:
   - component: {fileID: 1288546923}
   - component: {fileID: 1288546925}
   - component: {fileID: 1288546924}
+  - component: {fileID: 1288546926}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2821,6 +2871,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288546922}
   m_CullTransparentMesh: 1
+--- !u!114 &1288546926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288546922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4a9cd5a2c8852449031ed0e9e40401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  delay: 0.01
+  dialogueText: {fileID: 1288546924}
+  linesMessage:
+  - 'Material de los conductores: '
+  - "\tAluminio "
+  - 'Dimensiones  '
+  - "\tAltura 10cm "
+  - "\tAncho 40cm "
+  - "\tLargo 40cm "
+  - 'Peso  '
+  - "\t12k "
+  - "El aluminio permite una buena conducci\xF3n de electricidad hacia los imanes
+    sin generar magnetismo que interfiera con los imanes  "
 --- !u!1 &1293577364
 GameObject:
   m_ObjectHideFlags: 0
@@ -3049,7 +3125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: 0
   delay: 0.01
-  dialogueText: {fileID: 0}
+  dialogueText: {fileID: 1308987323}
   linesMessage:
   - 'Material Pads '
   - "\tCaucho "
@@ -4337,7 +4413,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5251ff5af13b64a4eb4c2b34d4df7806, type: 2}
-  - {fileID: 2100000, guid: 2c934e5e6535d674d96517d6823baf8f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4520,7 +4595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74457c7a1841ac47b80e0d8dbd1084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textGenerator: {fileID: 0}
+  textGenerator: {fileID: 1288546926}
   cuadroUI: {fileID: 1080716207}
 --- !u!23 &5724053505006746377
 MeshRenderer:
@@ -4729,7 +4804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74457c7a1841ac47b80e0d8dbd1084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textGenerator: {fileID: 0}
+  textGenerator: {fileID: 787708460}
   cuadroUI: {fileID: 2035989843}
 --- !u!1 &7053104084812492536
 GameObject:
@@ -4805,7 +4880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74457c7a1841ac47b80e0d8dbd1084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textGenerator: {fileID: 0}
+  textGenerator: {fileID: 325529655}
   cuadroUI: {fileID: 2065777242}
 --- !u!1 &7700552868363411188
 GameObject:
