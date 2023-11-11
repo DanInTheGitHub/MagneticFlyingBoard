@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartDescription : MonoBehaviour
+public class BasePart : MonoBehaviour
 {
 
     private bool flag =false;
-    public TextGenerator textGenerator;
+    public List <TextGenerator> textGenerators = new List<TextGenerator>();
     public GameObject cuadroUI; // Asigna tu objeto UI (el cuadro) a esta variable desde el Inspector.
 
     private bool ratonSobreObjeto = false;
@@ -17,17 +17,25 @@ public class PartDescription : MonoBehaviour
         if (ratonSobreObjeto)
         {
             cuadroUI.SetActive(true);
+            foreach (var textGenerator in textGenerators) 
+            {
                if (textGenerator != null && !flag )
-        {
-            flag=true;
-           StartCoroutine(TextGen());
-        }
+                {
+                flag=true;
+            StartCoroutine(TextGen());
+                }
+            }
+           
 
         }
         else
         {
             flag = false;
-            textGenerator.dialogueText.text = "";
+            foreach (var textGenerator in textGenerators) 
+            {
+                textGenerator.dialogueText.text = "";
+            }
+       
             cuadroUI.SetActive(false);
             
         }
@@ -45,8 +53,14 @@ public class PartDescription : MonoBehaviour
     }
         private IEnumerator TextGen()
     {
+        foreach (var textGenerator in textGenerators) 
+            {
          textGenerator.start=true;
+            }
          yield return new WaitForSeconds(0.05f);
+         foreach (var textGenerator in textGenerators) 
+            {
          textGenerator.start=false;
+            }   
     }
 }

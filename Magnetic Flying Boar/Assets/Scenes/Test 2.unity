@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 6410058}
   - component: {fileID: 6410060}
   - component: {fileID: 6410059}
+  - component: {fileID: 6410061}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -335,6 +336,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6410057}
   m_CullTransparentMesh: 1
+--- !u!114 &6410061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6410057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4a9cd5a2c8852449031ed0e9e40401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  delay: 0.01
+  dialogueText: {fileID: 0}
+  linesMessage:
+  - "Se imita el patr\xF3n de las llantas de carros para que esta genere una menor
+    fricci\xF3n y no dejar que el usuario se deslice"
 --- !u!1 &216165594
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,9 +1239,6 @@ GameObject:
   - component: {fileID: 681709710}
   - component: {fileID: 681709709}
   - component: {fileID: 681709708}
-  - component: {fileID: 681709707}
-  - component: {fileID: 681709706}
-  - component: {fileID: 681709705}
   m_Layer: 0
   m_Name: espuma
   m_TagString: Player
@@ -1245,46 +1261,6 @@ Transform:
   m_Father: {fileID: 1081967286040552072}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &681709705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681709703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d74457c7a1841ac47b80e0d8dbd1084f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cuadroUI: {fileID: 617118161}
---- !u!114 &681709706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681709703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed3206aa7b690bc4b8eadf05f503f2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 146c11a1a1432e44894681b770425e45, type: 2}
-  objectInteraction: {fileID: 705284603}
---- !u!114 &681709707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681709703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e0960f577585da438aca64781368abc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectInteraction: {fileID: 705284603}
 --- !u!65 &681709708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2932,6 +2908,7 @@ GameObject:
   - component: {fileID: 1308987322}
   - component: {fileID: 1308987324}
   - component: {fileID: 1308987323}
+  - component: {fileID: 1308987325}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2947,8 +2924,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308987321}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00007793794}
+  m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1768497329}
@@ -2956,7 +2933,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 301.89987, y: 170.28148}
+  m_AnchoredPosition: {x: 301.9, y: 170.28152}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1308987323
@@ -3058,6 +3035,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308987321}
   m_CullTransparentMesh: 1
+--- !u!114 &1308987325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308987321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4a9cd5a2c8852449031ed0e9e40401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  delay: 0.01
+  dialogueText: {fileID: 0}
+  linesMessage:
+  - 'Material Pads '
+  - "\tCaucho "
+  - 'Dimensiones '
+  - "\tAltura 2cm "
+  - "\tAncho 25cm "
+  - "\tLargo 15cm "
+  - Peso
+  - "\t0.75k"
+  - 'El caucho no genera copnductividad electrica lo qe protege al usario '
 --- !u!1 &1397521215
 GameObject:
   m_ObjectHideFlags: 0
@@ -3219,10 +3221,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.62700003, z: 0}
   m_LocalScale: {x: 100, y: 100.000015, z: 100}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1081967286040552072}
+  m_Children: []
   m_Father: {fileID: 1204486463396533867}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1514773524
 GameObject:
@@ -3776,6 +3777,7 @@ GameObject:
   - component: {fileID: 2052295641}
   - component: {fileID: 2052295643}
   - component: {fileID: 2052295642}
+  - component: {fileID: 2052295644}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3903,6 +3905,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052295640}
   m_CullTransparentMesh: 1
+--- !u!114 &2052295644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052295640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4a9cd5a2c8852449031ed0e9e40401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  delay: 0.01
+  dialogueText: {fileID: 2052295642}
+  linesMessage:
+  - 'Material de la tabla: '
+  - "\tFibra de vidrio"
+  - "\tResina epoxi"
+  - "\tEspuma"
+  - 'Dimensiones:'
+  - "\taltura:  5cm"
+  - "\tlargo:  80cm"
+  - "\tancho:  30cm"
+  - 'Peso: 45kg'
+  - La tabla esta hecha de fibra de vidrio y resina epoxy para darle resistencia
+    y drabilidad ademas de una muy baja conductividad
 --- !u!1 &2056306424
 GameObject:
   m_ObjectHideFlags: 0
@@ -3915,9 +3944,6 @@ GameObject:
   - component: {fileID: 2056306431}
   - component: {fileID: 2056306430}
   - component: {fileID: 2056306429}
-  - component: {fileID: 2056306428}
-  - component: {fileID: 2056306427}
-  - component: {fileID: 2056306426}
   m_Layer: 0
   m_Name: Tabla (1)
   m_TagString: Player
@@ -3940,46 +3966,6 @@ Transform:
   m_Father: {fileID: 1081967286040552072}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &2056306426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056306424}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d74457c7a1841ac47b80e0d8dbd1084f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cuadroUI: {fileID: 617118161}
---- !u!114 &2056306427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056306424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed3206aa7b690bc4b8eadf05f503f2c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 146c11a1a1432e44894681b770425e45, type: 2}
-  objectInteraction: {fileID: 705284603}
---- !u!114 &2056306428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2056306424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e0960f577585da438aca64781368abc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectInteraction: {fileID: 705284603}
 --- !u!65 &2056306429
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4180,15 +4166,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7700552868363411188}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.012712, z: -0.00627}
-  m_LocalScale: {x: 1, y: 0.500183, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -1.2712004}
+  m_LocalScale: {x: 100, y: 50.018314, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2056306425}
   - {fileID: 681709704}
-  m_Father: {fileID: 1476514406}
-  m_RootOrder: 0
+  m_Father: {fileID: 1204486463396533867}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &1110186448760039173
 Transform:
@@ -4236,6 +4222,7 @@ Transform:
   - {fileID: 245254919975471776}
   - {fileID: 1110186448760039173}
   - {fileID: 1670722345626078253}
+  - {fileID: 1081967286040552072}
   - {fileID: 1476514406}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -4533,6 +4520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74457c7a1841ac47b80e0d8dbd1084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textGenerator: {fileID: 0}
   cuadroUI: {fileID: 1080716207}
 --- !u!23 &5724053505006746377
 MeshRenderer:
@@ -4646,9 +4634,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4881365623999528332}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d74457c7a1841ac47b80e0d8dbd1084f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d6eaf1f1c7148e4ca9368920469384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textGenerators:
+  - {fileID: 1308987325}
+  - {fileID: 6410061}
   cuadroUI: {fileID: 1768497328}
 --- !u!1 &6295756193753046427
 GameObject:
@@ -4738,6 +4729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74457c7a1841ac47b80e0d8dbd1084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textGenerator: {fileID: 0}
   cuadroUI: {fileID: 2035989843}
 --- !u!1 &7053104084812492536
 GameObject:
@@ -4813,6 +4805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74457c7a1841ac47b80e0d8dbd1084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textGenerator: {fileID: 0}
   cuadroUI: {fileID: 2065777242}
 --- !u!1 &7700552868363411188
 GameObject:
@@ -4938,4 +4931,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74457c7a1841ac47b80e0d8dbd1084f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textGenerator: {fileID: 2052295644}
   cuadroUI: {fileID: 617118161}
