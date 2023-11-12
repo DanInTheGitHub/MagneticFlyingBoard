@@ -5,26 +5,24 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 public class TextGenerator : MonoBehaviour
 {
-    [SerializeField] public bool start;  
     [SerializeField] private float delay = 0.4f;
     [SerializeField] public TMP_Text dialogueText;
     [SerializeField] private List<string> linesMessage = new List<string>();
     private bool isScripting;
+
     void Awake()
     {
         dialogueText.text = "";
     }
 
-    private void Update()
+    public void InitText()
     {
-       
-        if (start && !isScripting)
+        if (!isScripting)
         {
-            start = false;
             StartCoroutine(ScriptText());
         }
     }
-    
+
     private IEnumerator ScriptText()
     {
         if (isScripting) yield break;
@@ -38,6 +36,11 @@ public class TextGenerator : MonoBehaviour
             }
             dialogueText.text += "\n";
         }
+        isScripting = false;
+    }
+
+    private void OnDisable()
+    {
         isScripting = false;
     }
 }

@@ -66,21 +66,21 @@ public class ViewControl : MonoBehaviour
         offset.z = -initialDistance;
     }
 
-    public void Separate()
-    {
-        if (canSeparate)
-        {
-            StartCoroutine(SeparatePieces());
-        }
-    }
+    //public void Separate()
+    //{
+    //    if (canSeparate)
+    //    {
+    //        StartCoroutine(SeparatePieces());
+    //    }
+    //}
 
-    public void Join()
-    {
-        if (!canSeparate)
-        {
-            StartCoroutine(JoinPieces());
-        }
-    }
+    //public void Join()
+    //{
+    //    if (!canSeparate)
+    //    {
+    //        StartCoroutine(JoinPieces());
+    //    }
+    //}
 
     public void ChangeTarget(Transform newTarget)
     {
@@ -146,38 +146,38 @@ public class ViewControl : MonoBehaviour
         return allVisible;
     }
 
-    private IEnumerator SeparatePieces()
-    {
-        float separationTime = 2.0f; // Tiempo total para separar las piezas
-        float startTime = Time.time;
-        while (Time.time - startTime < separationTime)
-        {
-            for (int i = 1; i < piecesUp.Length; i++)
-            {
-                piecesUp[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * separationSpeed);
-                piecesDown[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * separationSpeed);
-                yield return null; // Espera un frame antes de continuar
-            }
-        }
+    //private IEnumerator SeparatePieces()
+    //{
+    //    float separationTime = 2.0f; // Tiempo total para separar las piezas
+    //    float startTime = Time.time;
+    //    while (Time.time - startTime < separationTime)
+    //    {
+    //        for (int i = 1; i < piecesUp.Length; i++)
+    //        {
+    //            piecesUp[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * separationSpeed);
+    //            piecesDown[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * separationSpeed);
+    //            yield return null; // Espera un frame antes de continuar
+    //        }
+    //    }
 
-        canSeparate = false;
-    }
+    //    canSeparate = false;
+    //}
 
-    private IEnumerator JoinPieces()
-    {
-        float joinTime = 2.0f; // Tiempo total para separar las piezas
-        float startTime = Time.time;
+    //private IEnumerator JoinPieces()
+    //{
+    //    float joinTime = 2.0f; // Tiempo total para separar las piezas
+    //    float startTime = Time.time;
 
-        while (Time.time - startTime < joinTime)
-        {
-            for (int i = piecesUp.Length - 1; i > 0; i--)
-            {
-                piecesUp[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * joinSpeed);
-                piecesDown[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * joinSpeed);
-                yield return null;
-            }
-        }
-        
-        canSeparate = true;
-    }
+    //    while (Time.time - startTime < joinTime)
+    //    {
+    //        for (int i = piecesUp.Length - 1; i > 0; i--)
+    //        {
+    //            piecesUp[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * joinSpeed);
+    //            piecesDown[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * joinSpeed);
+    //            yield return null;
+    //        }
+    //    }
+
+    //    canSeparate = true;
+    //}
 }

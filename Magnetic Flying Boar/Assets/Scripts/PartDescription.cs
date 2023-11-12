@@ -6,47 +6,25 @@ using UnityEngine;
 public class PartDescription : MonoBehaviour
 {
 
-    private bool flag =false;
+    private bool flag, can = true;
     public TextGenerator textGenerator;
-    public GameObject cuadroUI; // Asigna tu objeto UI (el cuadro) a esta variable desde el Inspector.
-
-    private bool ratonSobreObjeto = false;
-
-    private void Update()
-    {
-        if (ratonSobreObjeto)
-        {
-            cuadroUI.SetActive(true);
-               if (textGenerator != null && !flag )
-        {
-            flag=true;
-           StartCoroutine(TextGen());
-        }
-
-        }
-        else
-        {
-            flag = false;
-            textGenerator.dialogueText.text = "";
-            cuadroUI.SetActive(false);
-            
-        }
-    }
+    public GameObject cuadroUI;
 
     private void OnMouseEnter()
     {
-     
-        ratonSobreObjeto = true;
+        cuadroUI.SetActive(true);
+        if (textGenerator != null && !flag)
+        {
+            flag = true;
+           
+        }
     }
 
     private void OnMouseExit()
     {
-        ratonSobreObjeto = false;
-    }
-        private IEnumerator TextGen()
-    {
-         textGenerator.start=true;
-         yield return new WaitForSeconds(0.05f);
-         textGenerator.start=false;
+        cuadroUI.SetActive(false);
+        flag = false;
+        textGenerator.dialogueText.text = "";
+        
     }
 }
