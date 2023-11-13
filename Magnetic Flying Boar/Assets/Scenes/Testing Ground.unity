@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64f2a118737c4a43bde031ad60958fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialDistance: 10
+  initialDistance: 6
   rotationSpeed: 2
   verticalSpeed: 2
   zoomSpeed: 2
@@ -381,7 +381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4e074fcb0fdec14eaa946e12672c85d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.08
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d4e074fcb0fdec14eaa946e12672c85d, type: 3}
       propertyPath: m_LocalPosition.z
