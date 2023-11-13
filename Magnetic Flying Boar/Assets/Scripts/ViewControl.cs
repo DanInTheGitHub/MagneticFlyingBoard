@@ -19,7 +19,7 @@ public class ViewControl : MonoBehaviour
     public GameObject[] piecesStatic;
 
     [SerializeField] private Transform target; // Objeto que la c�mara observa
-    [SerializeField] private bool separate = true;
+    [SerializeField] private bool canSeparate = false;
 
     private Vector3 offset;
     private float horizontalAngle = 0.0f;
@@ -33,6 +33,7 @@ public class ViewControl : MonoBehaviour
     private void Start()
     {
         offset = new Vector3(0.0f, 0.0f, -initialDistance);
+        canSeparate = true;
         target = parentObject.transform; // Inicialmente, el objetivo es el objeto completo
         ToggleAllPiecesVisibility(allPiecesVisible);
     }
@@ -67,7 +68,7 @@ public class ViewControl : MonoBehaviour
 
     public void Separate()
     {
-        if (separate)
+        if (canSeparate)
         {
             StartCoroutine(SeparatePieces());
         }
@@ -75,7 +76,7 @@ public class ViewControl : MonoBehaviour
 
     public void Join()
     {
-        if (separate)
+        if (!canSeparate)
         {
             StartCoroutine(JoinPieces());
         }
@@ -151,7 +152,6 @@ public class ViewControl : MonoBehaviour
         float startTime = Time.time;
         while (Time.time - startTime < separationTime)
         {
-            separate = false;
             for (int i = 1; i < piecesUp.Length; i++)
             {
                 piecesUp[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * separationSpeed);
@@ -160,7 +160,7 @@ public class ViewControl : MonoBehaviour
             }
         }
 
-        separate = true;
+        canSeparate = false;
     }
 
     private IEnumerator JoinPieces()
@@ -170,15 +170,14 @@ public class ViewControl : MonoBehaviour
 
         while (Time.time - startTime < joinTime)
         {
-            separate = false;
             for (int i = piecesUp.Length - 1; i > 0; i--)
             {
-                piecesUp[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * separationSpeed);
-                piecesDown[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * separationSpeed);
+                piecesUp[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * joinSpeed);
+                piecesDown[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * joinSpeed);
                 yield return null;
             }
         }
 
-        separate = true;
+        canSeparate = true;
     }
 }
