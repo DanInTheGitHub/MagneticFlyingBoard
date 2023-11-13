@@ -8,17 +8,17 @@ public class ViewControl : MonoBehaviour
     public float verticalSpeed = 2.0f;
     public float zoomSpeed = 2.0f;
 
-    public float separationSpeed = 0.5f; // Velocidad de separación
-    public float joinSpeed = 0.5f; // Velocidad de unión
+    public float separationSpeed = 0.5f; // Velocidad de separaciï¿½n
+    public float joinSpeed = 0.5f; // Velocidad de uniï¿½n
 
     public GameObject parentObject; // El objeto completo que contiene todas las piezas
-    public Camera cameraToOscillate; // Cámara que oscilará alrededor del objetivo
+    public Camera cameraToOscillate; // Cï¿½mara que oscilarï¿½ alrededor del objetivo
 
     public GameObject[] piecesUp;
     public GameObject[] piecesDown;
     public GameObject[] piecesStatic;
 
-    [SerializeField] private Transform target; // Objeto que la cámara observa
+    [SerializeField] private Transform target; // Objeto que la cï¿½mara observa
     [SerializeField] private bool canSeparate = false;
 
     private Vector3 offset;
@@ -66,21 +66,21 @@ public class ViewControl : MonoBehaviour
         offset.z = -initialDistance;
     }
 
-    //public void Separate()
-    //{
-    //    if (canSeparate)
-    //    {
-    //        StartCoroutine(SeparatePieces());
-    //    }
-    //}
+    public void Separate()
+    {
+        if (canSeparate)
+        {
+            StartCoroutine(SeparatePieces());
+        }
+    }
 
-    //public void Join()
-    //{
-    //    if (!canSeparate)
-    //    {
-    //        StartCoroutine(JoinPieces());
-    //    }
-    //}
+    public void Join()
+    {
+        if (!canSeparate)
+        {
+            StartCoroutine(JoinPieces());
+        }
+    }
 
     public void ChangeTarget(Transform newTarget)
     {
@@ -98,7 +98,7 @@ public class ViewControl : MonoBehaviour
         // Muestra todas las piezas
         ToggleAllPiecesVisibility(true);
 
-        // Restablece el objetivo a la cámara
+        // Restablece el objetivo a la cï¿½mara
         target = parentObject.transform;
     }
 
@@ -146,38 +146,38 @@ public class ViewControl : MonoBehaviour
         return allVisible;
     }
 
-    //private IEnumerator SeparatePieces()
-    //{
-    //    float separationTime = 2.0f; // Tiempo total para separar las piezas
-    //    float startTime = Time.time;
-    //    while (Time.time - startTime < separationTime)
-    //    {
-    //        for (int i = 1; i < piecesUp.Length; i++)
-    //        {
-    //            piecesUp[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * separationSpeed);
-    //            piecesDown[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * separationSpeed);
-    //            yield return null; // Espera un frame antes de continuar
-    //        }
-    //    }
+    private IEnumerator SeparatePieces()
+    {
+        float separationTime = 2.0f; // Tiempo total para separar las piezas
+        float startTime = Time.time;
+        while (Time.time - startTime < separationTime)
+        {
+            for (int i = 1; i < piecesUp.Length; i++)
+            {
+                piecesUp[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * separationSpeed);
+                piecesDown[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * separationSpeed);
+                yield return null; // Espera un frame antes de continuar
+            }
+        }
 
-    //    canSeparate = false;
-    //}
+        canSeparate = false;
+    }
 
-    //private IEnumerator JoinPieces()
-    //{
-    //    float joinTime = 2.0f; // Tiempo total para separar las piezas
-    //    float startTime = Time.time;
+    private IEnumerator JoinPieces()
+    {
+        float joinTime = 2.0f; // Tiempo total para separar las piezas
+        float startTime = Time.time;
 
-    //    while (Time.time - startTime < joinTime)
-    //    {
-    //        for (int i = piecesUp.Length - 1; i > 0; i--)
-    //        {
-    //            piecesUp[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * joinSpeed);
-    //            piecesDown[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * joinSpeed);
-    //            yield return null;
-    //        }
-    //    }
+        while (Time.time - startTime < joinTime)
+        {
+            for (int i = piecesUp.Length - 1; i > 0; i--)
+            {
+                piecesUp[i].transform.Translate(Vector3.back * 2.0f * i * Time.deltaTime * joinSpeed);
+                piecesDown[i].transform.Translate(Vector3.forward * 2.0f * i * Time.deltaTime * joinSpeed);
+                yield return null;
+            }
+        }
 
-    //    canSeparate = true;
-    //}
+        canSeparate = true;
+    }
 }
