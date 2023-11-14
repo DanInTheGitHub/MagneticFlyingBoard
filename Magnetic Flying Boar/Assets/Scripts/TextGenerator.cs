@@ -39,6 +39,11 @@ public class TextGenerator : MonoBehaviour
         isScripting = false;
     }
 
+    public void DeleteText()
+    {
+        dialogueText.text = "";
+    }
+
     private void OnDisable()
     {
         isScripting = false;
