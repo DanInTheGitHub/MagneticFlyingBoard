@@ -14,10 +14,6 @@ public class CameraPriority : MonoBehaviour
         virtualChilds = clearShot.ChildCameras;
     }
 
-    void Update()
-    {
-        
-    }
 
     public void ChangeCameraPriority(int camera)
     {
