@@ -19,6 +19,7 @@ public class TextGenerator : MonoBehaviour
     {
         if (!isScripting)
         {
+            dialogueText.text = "";
             StartCoroutine(ScriptText());
         }
     }
