@@ -16,11 +16,7 @@ public class HighlightPiece : MonoBehaviour
 
     void OnMouseEnter()
     {
-        // Verifica si todas las piezas están visibles en ObjectInteraction
-        if (objectInteraction.AreAllPiecesVisible())
-        {
             renderer.material = highlightMaterial;
-        }
     }
 
     void OnMouseExit()
