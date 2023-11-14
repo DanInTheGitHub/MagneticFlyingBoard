@@ -24,6 +24,8 @@ public class ViewControl : MonoBehaviour
     {
         offset = new Vector3(0.0f, 0.0f, -initialDistance);
         target = parentObject.transform; // Inicialmente, el objetivo es el objeto completo
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void LateUpdate()
@@ -35,6 +37,17 @@ public class ViewControl : MonoBehaviour
 
     private void HandleMouseInput()
     {
+        if (Input.GetKeyUp(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         // Detectar el clic derecho del ratón
         if (Input.GetMouseButtonDown(1))
         {
