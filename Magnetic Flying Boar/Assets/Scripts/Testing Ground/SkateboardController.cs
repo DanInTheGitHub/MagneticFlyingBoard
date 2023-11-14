@@ -5,6 +5,7 @@ public class SkateboardController : MonoBehaviour
     public float speed = 5f;
     public float rotationSpeed = 100f;
 
+
     void Update()
     {
         // Obtener la entrada del teclado
